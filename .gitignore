@@ -1,1 +1,29 @@
+/vendor/
+/node_modules/
+
+# Laravel specific
+.env
+.env.backup
+.phpunit.result.cache
+storage/*.key
+storage/logs/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+storage/app/public/*
+bootstrap/cache/*.php
+
+# IDE helpers
 .idea/
+.vscode/
+nbproject/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NPM/Yarn logs
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
