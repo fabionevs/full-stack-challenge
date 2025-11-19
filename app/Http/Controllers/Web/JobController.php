@@ -22,19 +22,24 @@ class JobController extends Controller
             'salary_min',
         ]);
 
-        $data = $this->jobService->listJobsWithFilters($filters);
+        $jobs = $this->jobService->listJobsWithFilters($filters);
+        $locations = $this->jobService->getAvailableLocations($request);
 
-        return Inertia::render('Jobs/Index', $data);
+        return inertia('Jobs/Index', [
+        'jobs' => $jobs,
+        'filters' => $request->all(),
+        'locations' => $locations,
+    ]);
     }
 
     public function show(string $slug)
     {
-        $job = $this->jobService->getJobForPublicView($slug);
+        $job = $this->jobService->getBySlug($slug);
 
-        abort_if(!$job, 404);
-
-        return Inertia::render('Jobs/Show', [
+        return inertia('Jobs/Show', [
             'job' => $job,
+            'company' => $job->company,
+            'relatedJobs' => $this->jobService->related($job),
         ]);
     }
 }

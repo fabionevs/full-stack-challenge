@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('logo_url')->nullable();
             $table->string('website')->nullable();
             $table->string('location')->nullable();
+            $table->string('industry')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('is_remote')->default(false);
             $table->unsignedInteger('salary_min')->nullable();
             $table->unsignedInteger('salary_max')->nullable();
-            $table->enum('type', ['full-time', 'part-time', 'contract'])->default('full-time');
+            $table->enum('type', ['full-time', 'part-time', 'contract', 'remote'])->default('full-time');
             $table->text('short_description');
             $table->longText('description');
             $table->timestamp('published_at')->nullable()->index();
