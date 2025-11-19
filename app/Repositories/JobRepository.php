@@ -45,9 +45,44 @@ class JobRepository
     public function findPublishedBySlug(string $slug): ?Job
     {
         return Job::query()
-            ->with('company')
+            ->with(['company' => function ($q) {
+                $q->withCount('jobs')->where('published_at', '!=', null);
+            }])
             ->published()
             ->where('slug', $slug)
             ->first();
+    }
+
+    public function getBySlug($slug)
+    {
+        return Job::query()
+            ->where('slug', $slug)
+            ->with('company')
+            ->firstOrFail();
+    }
+
+    public function getRelatedJobsFromCompany(Job $job)
+    {
+        return Job::query()
+            ->where('company_id', $job->company_id)
+            ->where('id', '!=', $job->id)
+            ->latest()
+            ->take(5)
+            ->get();
+    }
+
+    public function getAvailableLocations(): array
+    {
+        return Job::query()
+            ->selectRaw('DISTINCT TRIM(location) as location')
+            ->whereNotNull('published_at')
+            ->orderBy('location')
+            ->pluck('location')
+            ->toArray();
+    }
+
+     public function query()
+    {
+        return Job::query();
     }
 }

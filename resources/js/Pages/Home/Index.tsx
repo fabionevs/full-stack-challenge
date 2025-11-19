@@ -7,60 +7,6 @@ const HomeIndex: React.FC = () => {
       <Head title="WiseJobs - Home" />
 
       {/* HEADER */}
-      <header className="header sticky-bar">
-        <div className="container">
-          <div className="main-header">
-            <div className="header-left">
-              <div className="header-logo">
-                <a href="/" className="d-flex">
-                  <img
-                    alt="jobhub"
-                    src="/img/logo.png"
-                    style={{width: '138px', height: '43px'}}
-                  />
-                </a>
-              </div>
-              <div className="header-nav">
-                <nav className="nav-main-menu d-none d-xl-block">
-                  <ul className="main-menu">
-                    <li className="has-children">
-                      <a className="active" href="/">
-                        Home
-                      </a>
-                    </li>
-                    <li className="has-children">
-                      {/* Aqui você já pode apontar para a rota de jobs do Laravel */}
-                      <a href="/jobs">Browse Jobs</a>
-                    </li>
-                    {/* Remova o que não precisar (Candidates, Blog, etc) */}
-                  </ul>
-                </nav>
-                <div className="burger-icon burger-icon-white">
-                  <span className="burger-icon-top" />
-                  <span className="burger-icon-mid" />
-                  <span className="burger-icon-bottom" />
-                </div>
-              </div>
-            </div>
-            <div className="header-right">
-              <div className="block-signin">
-                <a
-                  href="#"
-                  className="text-link-bd-btom hover-up"
-                >
-                  Apply Now
-                </a>
-                <a
-                  href="#"
-                  className="btn btn-default btn-shadow ml-40 hover-up"
-                >
-                  Sign in
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* MOBILE HEADER – se quiser, pode manter igual ao HTML original */}
       <div className="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">

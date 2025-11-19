@@ -7,6 +7,7 @@ import { createRoot } from 'react-dom/client';
 import BootstrapLayout from "./Layouts/BootstrapLayout";
 import { route } from 'ziggy-js';
 import { Ziggy } from './ziggy';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
