@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\JobRepository;
+use App\Repositories\CompanyRepository;
 use App\Models\Job;
 
 class JobService
@@ -15,6 +16,7 @@ class JobService
     {
         return [
             'jobs' => $this->jobs->paginatePublishedWithFilters($filters, 10),
+            'companies' => $this->companies->allForFilter(),
             'filters' => $filters,
         ];
     }
